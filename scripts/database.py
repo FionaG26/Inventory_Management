@@ -1,15 +1,12 @@
 import mysql.connector
 from mysql.connector import Error
-import configparser
 import os
+from dotenv import load_dotenv
 
-def load_config():
-    config = configparser.ConfigParser()
-    config.read('config/config.ini')
-    return config
+# Load environment variables from .env file
+load_dotenv()
 
 def create_connection():
-    config = load_config()
     connection = None
     try:
         connection = mysql.connector.connect(
